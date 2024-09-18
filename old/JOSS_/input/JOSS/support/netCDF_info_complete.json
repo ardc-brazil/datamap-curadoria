@@ -1,0 +1,315 @@
+{
+    "global attributes": {
+        "description": {
+            "name": "description",
+            "short_name": "Data description",
+            "long_name": "The disdrometer RD-80 or Joss-Waldvogel (RD80) is an instrument widely used to measure the distribution of raindrops over a given time interval. These data can be used to determine several precipitation properties, such as the rain rate and the radar reflectivity factor.",
+            "units": "none",
+            "datatype": "string",
+            "id": "695",
+            "optional": "True"
+        },
+        "site_id": {
+            "name": "site_id",
+            "short_name": "Site identifier",
+            "long_name": "Site identifier: identifies the sites name",
+            "units": "none",
+            "datatype": "string",
+            "id": "696",
+            "optional": "True",
+            "value": "cam"
+        },
+        "platform_id": {
+            "name": "platform_id",
+            "short_name": "Platform identifier",
+            "long_name": "Platform identifier: identifies the instrument",
+            "units": "none",
+            "datatype": "string",
+            "id": "697",
+            "optional": "True",
+            "value": "rd80"
+        },
+        "facility_id": {
+            "name": "facility_id",
+            "short_name": "Facility identifier",
+            "long_name": "Facility identifier: identifies where the instrument is installed",
+            "units": "none",
+            "datatype": "string",
+            "id": "698",
+            "optional": "True",
+            "value": "ATTO"
+        },
+        "data_level": {
+            "name": "data_level",
+            "short_name": "Data Level",
+            "long_name": "Identifies the level of data processing (please, check the ATTO manual of the equipment)",
+            "units": "none",
+            "datatype": "string",
+            "id": "699",
+            "optional": "True",
+            "value": "b0"
+        },
+        "location_description": {
+            "name": "location_description",
+            "short_name": "Location Description",
+            "long_name": "Campina site, close to the ATTO tower",
+            "units": "none",
+            "datatype": "string",
+            "id": "700",
+            "optional": "True"
+        },
+        "datastream": {
+            "name": "datastream",
+            "short_name": "datastream",
+            "long_name": "Describes the applied datastream",
+            "units": "none",
+            "datatype": "string",
+            "id": "701",
+            "optional": "True",
+            "value": "attimpactdisdcam.b0"
+        },
+        "sampling_interval": {
+            "name": "sampling_interval",
+            "short_name": "Sampling Interval",
+            "long_name": "Measurement sampling interval",
+            "units": "second",
+            "datatype": "double",
+            "id": "702",
+            "optional": "True",
+            "value": "60.0"
+        },
+        "averaging_interval": {
+            "name": "averaging_interval",
+            "short_name": "Averaging Interval",
+            "long_name": "Averaging interval when applied",
+            "units": "second",
+            "datatype": "double",
+            "id": "703",
+            "optional": "True",
+            "value": "0.0"
+        },
+        "serial_number": {
+            "name": "serial_number",
+            "short_name": "Serial Number",
+            "long_name": "Instrument serial number",
+            "units": "none",
+            "datatype": "integer",
+            "id": "704",
+            "optional": "True",
+            "value": "0"
+        },
+        "calib_date": {
+            "name": "calib_date",
+            "short_name": "Calibration date",
+            "long_name": "Last calibration date",
+            "units": "date",
+            "datatype": "datetime",
+            "id": "705",
+            "optional": "True",
+            "value": "2021-08-06",
+            "value-format": "YYYY-MM-DD"
+        }
+    },
+    "dimensions": {
+        "time": {
+            "value": "1440"
+        },
+        "drop_class": {
+            "value": "20"
+        }
+    },
+    "variables": {
+        "base_time": {
+            "string": "AAAA-MM-DD 00:00:00 0:00",
+            "name": "base_time",
+            "short_name": "Base time",
+            "long_name": "Base time in Epoch",
+            "units": "seconds since 1970-1-1 0:00:00 0:00",
+            "value": "None",
+            "datatype": "integer",
+            "id": "692",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "time_offset": {
+            "name": "time_offset",
+            "short_name": "Time offset",
+            "long_name": "Time offset from base_time",
+            "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
+            "value": "None",
+            "datatype": "double",
+            "id": "693",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "fall_vell": {
+            "name": "Fall fall_vell of drop",
+            "short_name": "fall_vell",
+            "long_name": "Fall fall_vell of drop with diameter D  (raw)",
+            "units": "meter per second",
+            "value": "None",
+            "datatype": "double",
+            "id": "710",
+            "optional": "True",
+            "dimensions": ["drop_class"]
+        },
+        "delta_diam": {
+            "name": "Diameter interval",
+            "short_name": "fall_vell",
+            "long_name": "Diameter interval for every drop size class  (raw)",
+            "units": "milimeter",
+            "value": "None",
+            "datatype": "double",
+            "id": "711",
+            "optional": "True",
+            "dimensions": ["drop_class"]
+        },
+        "lat": {
+            "name": "North Latitude",
+            "shortname": "",
+            "long_name": "North Latitude",
+            "unit": "degree",
+            "datatype": "double",
+            "id": "719",
+            "optional": "True",
+            "value": "0.0"
+        },
+        "lon": {
+            "name": "East Longitude",
+            "shortname": "",
+            "long_name": "East Longitude",
+            "unit": "degree",
+            "datatype": "double",
+            "id": "720",
+            "optional": "True",
+            "value": "0.0"
+        },
+        "alt": {
+            "long_name": "Altitude above mean sea level",
+            "unit": "m",
+            "value": "12.0",
+            "datatype": "float"
+        },
+        "n": {
+            "name": "Number of raindrops",
+            "short_name": "quantity",
+            "long_name": "Number of raindrops measured for each class during time interval T1 (raw)",
+            "units": "none",
+            "value": "None",
+            "datatype": "double",
+            "id": "706",
+            "optional": "True",
+            "dimensions": ["time", "drop_class"]
+        },
+        "d_max": {
+            "name": "Largest drop",
+            "short_name": "length",
+            "long_name": "Largest drop registered during to sample interval  (raw)",
+            "units": "milimeter",
+            "value": "None",
+            "datatype": "double",
+            "id": "708",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "n_d": {
+            "name": "Number density of drops of the diameter",
+            "short_name": "",
+            "long_name": "Number density of drops of the diameter corresponding to every size class per unit volume (raw)",
+            "units": "per cubic millimeter and meter",
+            "value": "None",
+            "datatype": "double",
+            "id": "708",
+            "optional": "True",
+            "dimensions": ["time", "drop_class"]
+        },
+        "rain_rate": {
+            "name": "Rain Rate",
+            "short_name": "rainfall",
+            "long_name": "Rain intensity  (raw)",
+            "units": "milimeter per hour",
+            "value": "None",
+            "datatype": "double",
+            "id": "713",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "zdb": {
+            "name": "Radar reflectivity factor",
+            "short_name": "",
+            "long_name": "Radar reflectivity factor  (raw)",
+            "units": "decibel",
+            "value": "None",
+            "datatype": "decimal",
+            "id": "714",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "liq_water": {
+            "name": "Liquid Water Content",
+            "short_name": "",
+            "long_name": "Liquid water content (raw)",
+            "units": "gram per cubic meter",
+            "value": "None",
+            "datatype": "double",
+            "id": "715",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "ef": {
+            "name": "Energy flux",
+            "short_name": "ratioEnArea",
+            "long_name": "Energy flux (raw)",
+            "units": "joule per square meter",
+            "value": "None",
+            "datatype": "double",
+            "id": "716",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "slope": {
+            "name": "Slope",
+            "short_name": "",
+            "long_name": "Slope  (raw)",
+            "units": "per millimeter",
+            "value": "None",
+            "datatype": "double",
+            "id": "716",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "n_0": {
+            "name": "Number concentration",
+            "short_name": "",
+            "long_name": "Number concentration  (raw)",
+            "units": "per cubic millimeter and meter",
+            "value": "None",
+            "datatype": "double",
+            "id": "716",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "time": {
+            "name": "time",
+            "short_name": "Time",
+            "long_name": "Time offset from midnight",
+            "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
+            "value": "None",
+            "datatype": "double",
+            "id": "694",
+            "optional": "True",
+            "dimensions": ["time"]
+        },
+        "drops_class": {
+            "name": "Average diameter of drops",
+            "short_name": "length",
+            "long_name": "Average diameter of drops for every class  (raw)",
+            "units": "milimeter",
+            "value": "None",
+            "datatype": "double",
+            "id": "707",
+            "optional": "True",
+            "dimensions": ["drop_class"]
+        }
+    }
+}

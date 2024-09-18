@@ -2,6 +2,31 @@
 
 Este repositório contém scripts para gerar arquivos netCDF a partir de dados em formato `.trf` e também para gerar figuras a partir de arquivos netCDF. Abaixo estão descritos os comandos disponíveis para execução dos scripts.
 
+## Instalação
+=====================================================================
+### Requisitos
+- Python 3.11 ou superior
+- git
+- pip
+ou
+- Anaconda
+
+### Instalação
+Via pip:
+```bash
+git clone https://github.com/helvecioneto/datamap-curadoria.git
+cd datamap-curadoria
+pip install -r requirements.txt
+```
+
+Via conda:
+```bash
+git clone https://github.com/helvecioneto/datamap-curadoria.git
+cd datamap-curadoria
+conda env create -f environment.yml
+```
+
+
 ## Gen netCDF
 
 ### Executar para todos os arquivos `.trf` no diretório `input/JOSS/data`

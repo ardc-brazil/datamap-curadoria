@@ -3,6 +3,7 @@ import xarray as xr
 import numpy as np
 import os
 import utils.disdrometer_utils as disd
+import pathlib
 
 
 def extract_variables(
@@ -246,6 +247,8 @@ def generate_netCDF(
                 missing_value = ds[var].dtype.type(missing_value)
                 ds[var].attrs['missing_value'] = missing_value
         ds[var].attrs.pop('datatype', None)
+
+    pathlib.Path(path_output_data).mkdir(parents=True, exist_ok=True)
 
     #write the output file in JOSS_CDF (netCDF file), unlimited the time dimension and delete the chunking by using the format 'NETCDF3_CLASSIC':
     ds.to_netcdf(path_output_data.joinpath(cdf_filename),unlimited_dims='time',format='NETCDF3_CLASSIC')

@@ -7,7 +7,6 @@ import os
 import gc
 import pathlib
 import json
-import sys
 import utils.disdrometer_utils as disd
 import utils.netcdf_utils as cdf
 
@@ -17,7 +16,8 @@ import utils.netcdf_utils as cdf
 JOSS_parser = argparse.ArgumentParser(
     prog="JOSS_gen_netCDF",
     description="Processes JOSS raw data files to netCDF files",
-    epilog="Developed by: Thomas Pougy and Alan Calheiros"
+    epilog="Developed by: Thomas Pougy and Alan Calheiros",
+    formatter_class=argparse.RawDescriptionHelpFormatter
 )
 
 # Add the arguments
@@ -49,13 +49,12 @@ JOSS_parser.add_argument(
     "--pattern",
     action="store",
     default=None,
-    help="Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like '%Y%m%d'. Read the files inside the data input folder only for one day before to one day after the date input",
+    help=f"Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like %%Y%%m%%d. Read the files inside the data input folder only for one day before to one day after the date input",
 )
 
 # Execute the parse_args() method
 args = JOSS_parser.parse_args()
-
-export_date = None
+    
 if args.date:
     try:
         export_date = datetime.strptime(args.date.strip(), "%d/%m/%Y")
@@ -66,9 +65,10 @@ if args.pattern:
     try:
         export_date = datetime.strptime(args.pattern.strip(), "%d/%m/%Y")
     except Exception:
-        JOSS_parser.error("Bad date format, see --help for further information")    
+        JOSS_parser.error("Bad date format, see --help for further information") 
+        
 
-# check if there is at least one action requested
+# #check if there is at least one action requested
 
 # Define the invalid action combinations
 invalid_combinations = [
@@ -95,23 +95,14 @@ if args.date and not (args.standard or args.list):
 
 # Folders and files path
 path_cwd = pathlib.Path.cwd()
-
-if path_cwd.name != "JOSS":
-    print(
-        "ERRO. Please make sure python current working directory is the /JOSS folder which contains this script"
-    )
-    print("ERRO. Current working directory is:", path_cwd)
-    quit()
-
-path_input = path_cwd.joinpath("input", "JOSS")
+path_input = path_cwd.joinpath("input")
 path_input_data = path_input.joinpath("data")
 path_input_support = path_input.joinpath("support")
-path_output_data = path_cwd.joinpath("output", "JOSS", "netCDF")
+path_output_data = path_cwd.joinpath("output", "netCDF")
 
 # ##################### reading all file names in folder or list ##################### 
 
 # reading auxiliar data:
-
 with open(path_input_support.joinpath("variables_info.json"), "r") as xfile:
     variables_info_file = xfile.read()
 variables_info = json.loads(variables_info_file)
@@ -126,6 +117,9 @@ netCDF_info = json.loads(netCDF_info_file)
 
 EXT = variables_info["input_file_extension"]
 if args.standard:
+    # check if export_date is declared
+    if "export_date" not in locals():
+        export_date = None
     print("Executing script in standard mode")
     print("")
     files = [
@@ -136,13 +130,20 @@ if args.standard:
 elif args.list:
     print("Executing script in list mode")
     print("")
+    if "export_date" not in locals():
+        export_date = None
+    if not path_input_support.joinpath("files.txt").exists():
+        with open(path_input_support.joinpath("files.txt"), "w") as xfile:
+            xfile.write("")
     files = np.loadtxt(path_input_support.joinpath("files.txt"), dtype=str)
     if len(files.shape) == 0:
         files = files.reshape(1)
     files = [path_input_data.joinpath(file) for file in files]
+    
 elif args.pattern:
     print("Executing script in pattern mode")
     print("")
+    export_date = datetime.strptime(args.pattern.strip(), "%d/%m/%Y")
     d0 = export_date.strftime("%Y%m%d")
     d1 = (export_date - timedelta(days=1)).strftime("%Y%m%d")
     d2 = (export_date + timedelta(days=1)).strftime("%Y%m%d")

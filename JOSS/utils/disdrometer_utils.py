@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 import numpy as np
 import math
+import warnings
+warnings.filterwarnings("ignore")
 
 # FUNCTIONS TO READ THE FILES
 
@@ -41,8 +43,8 @@ def get_day_data(all_data, export_date, variables_info):
 
     # if export_date is None, the first date of the data is used
     if export_date == None:
-        export_date = all_data.index[0] 
-
+        export_date = all_data.index[0]
+    
     # start and end date of the day
     start_date = datetime(export_date.year, export_date.month, export_date.day, 0, 0)
 
@@ -57,7 +59,7 @@ def get_day_data(all_data, export_date, variables_info):
     )
 
     # reindex the dataframe with the day index and fill the missing values with NaN
-    all_data = all_data.reindex(day_idx, fill_value=np.NaN)
+    all_data = all_data.reindex(day_idx, fill_value=np.nan)
 
     # return dataframe with one day data, the next day to be exported and a boolean to break the loop
     return (
@@ -73,7 +75,7 @@ def get_filter_ni(data, drop_col, min_ni):
     ni = data[drop_col].sum(axis=1)
     invalid_indices = np.where(ni < min_ni)[0]
     if len(invalid_indices) > 0:
-        data.iloc[invalid_indices] = np.NaN 
+        data.iloc[invalid_indices] = np.nan 
 
     return data
 
