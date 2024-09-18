@@ -3,7 +3,6 @@
 Este repositório contém scripts para gerar arquivos netCDF a partir de dados em formato `.trf` e também para gerar figuras a partir de arquivos netCDF. Abaixo estão descritos os comandos disponíveis para execução dos scripts.
 
 ## Instalação
-=====================================================================
 ### Requisitos
 - Python 3.11 ou superior
 - git
@@ -29,8 +28,12 @@ conda env create -f environment.yml
 
 ## Gen netCDF
 
-### Executar para todos os arquivos `.trf` no diretório `input/JOSS/data`
+### Executar para todos os arquivos `.trf` no diretório `JOSS/input/data`
 Gera um arquivo netCDF para cada dia que possuir dados.
+
+```bash
+cd JOSS
+```
 
 ```bash
 python JOSS_gen_netCDF.py -s
@@ -99,8 +102,9 @@ python JOSS_gen_figures.py -l -p
 ### EXPLICACAO PATTERN MODE
 
 #### exemplo de comando
-
-> $ JOSS_gen_netCDF.py -p "%Y%m%d" -d "01/08/2022"
+```bash
+python JOSS_gen_netCDF.py -p "%Y%m%d" -d "01/08/2022"
+```
 
 #### O que faz:
 
