@@ -1,4 +1,4 @@
-# Gen netCDF and Figures
+# Datamap Scripts
 
 Este repositório contém scripts para gerar arquivos netCDF a partir de dados em formato `.trf` e também para gerar figuras a partir de arquivos netCDF. Abaixo estão descritos os comandos disponíveis para execução dos scripts.
 
