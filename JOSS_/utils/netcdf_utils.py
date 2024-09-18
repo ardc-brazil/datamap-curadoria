@@ -2,7 +2,7 @@ from datetime import datetime
 import xarray as xr
 import numpy as np
 import os
-import utils.disdrometer_utils as disd
+import disdrometer_utils as disd
 
 
 def extract_variables(

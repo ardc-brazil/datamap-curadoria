@@ -8,8 +8,9 @@ import gc
 import pathlib
 import json
 import sys
-import utils.disdrometer_utils as disd
-import utils.netcdf_utils as cdf
+sys.path.append('utils/')
+import disdrometer_utils as disd
+import netcdf_utils as cdf
 
 # ##################### ARGUMENTS ######################
 
@@ -51,6 +52,22 @@ JOSS_parser.add_argument(
     default=None,
     help="Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like '%Y%m%d'. Read the files inside the data input folder only for one day before to one day after the date input",
 )
+# JOSS_parser.add_argument(
+#     "-h",
+#     "--help",
+#     action="help",
+#     default=argparse.SUPPRESS,
+#     help="How to use the script: \n\n -d dd/mm/YYYY ou --date dd/mm/YYYY: \n"
+#     "Expect exporting date in format -d dd/mm/YYYY ou --date dd/mm/YYYY. Read all data inside the data input folder and extract the data for the date specified. \n\n"
+#     "-s ou --standard: \n"
+#     "Executes the script for all .trf files inside the data input folder and exit. \n\n"
+#     "-l ou --list: \n"
+#     "Executes the script for files listed in the files.txt file specified at input/JOSS folder and exit. The file.txt must have only the file name (without path) of the files in each line. \n\n"
+#     "-p ou --pattern: \n"
+#     "Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like '%Y%m%d'. Read the files inside the data input folder only for one day before to one day after the date input. \n\n"
+#     "-h ou --help: \n"
+#     "Show this help message and exit."
+# )
 
 # Execute the parse_args() method
 args = JOSS_parser.parse_args()
@@ -91,7 +108,7 @@ if args.date and not (args.standard or args.list):
     JOSS_parser.error("Invalid action requested, date needs to be used with -s or -l, see --help for further information")
     
 
-###################### Defining directories #####################
+# ##################### Defining directories #####################
 
 # Folders and files path
 path_cwd = pathlib.Path.cwd()
