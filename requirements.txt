@@ -13,3 +13,6 @@ six==1.16.0
 tenacity==9.0.0
 tzdata==2024.1
 xarray==2024.9.0
+dask==2024.9.0
+dask-expr==1.1.14
+
