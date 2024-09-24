@@ -79,7 +79,6 @@ def create_time_bounds_var_in_dataset(dataset):
     "long_name": "Time bounds",
     "datatype": "float64",
     "id": float('nan'),  
-    "value": time_bounds,
     "dimensions": ("time","bound"),
     "missing_value": float('nan'),
     "valid_min": float('nan'),
@@ -135,7 +134,6 @@ def extract_dims_for_metadata(dataset, dim):
         "length": len(dataset[dim])  
     }
 def extract_vars_for_metadata(var):
-        print(var.dims)
         return {
             "short_name": var.attrs.get("short_name", float('nan')),
             "standard_name": var.attrs.get("standard_name", float('nan')),
@@ -170,8 +168,6 @@ def create_and_update_metadata_in_json(dataset, base_json_path, final_json_path)
     with open(final_json_path, "w") as f:
         json.dump(metadados_base, f, indent=4)
 
-    # print(json.dumps(metadados_base, indent=4))
-
 def create_and_update_metadata_in_dataset(dataset, json_path, output_path):
    with open(json_path, 'r') as f:
     metadados = json.load(f)
@@ -199,24 +195,19 @@ def create_and_update_metadata_in_dataset(dataset, json_path, output_path):
     if 'time' in dataset.dims:
         time_dim = dataset['time']
         time_length = len(time_dim)
-        print(1)
         if time_length > 1:
-            print(2)
             # Se houver mais de uma data na dimensão time, usar o intervalo (início - fim)
             start_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
-            print(start_date)
             end_date = pd.to_datetime(time_dim.values[-1]).strftime('%Y%m%d')
-            print(4)
             nome_arquivo = f'{output_path}/meteors_metadata_timeseries_{start_date}_{end_date}.nc'
-            # print(f"{nome_arquivo}")
 
         else:
             # Se houver apenas uma data, usar essa data
             single_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
-            nome_arquivo = f'{output_path}/meteors_metadata_0_05deg_{single_date}.nc'
-    print(dataset)
+            file_name = f'meteors_metadata_0_05deg_{single_date}.nc'
+            path_name = f'{output_path}/{file_name}'
     try:
-        dataset.to_netcdf(nome_arquivo)
-        print(f"Arquivo salvo como {nome_arquivo}")
+        dataset.to_netcdf(path_name)
+        print(f"Arquivo salvo como {file_name}")
     except Exception as e:
         print(f"Ocorreu um erro: {e}. O arquivo {nome_arquivo} não foi salvo.")
