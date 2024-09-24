@@ -2,7 +2,7 @@
     "global_attributes": {
         "command_line": {
             "shortname": "Command line",
-            "long_name": "JOSS_gen_netCDF.py -s",
+            "long_name": "Command Line",
             "data_type": "string",
             "value": ""
         },
@@ -179,7 +179,6 @@
             "units": "seconds since 1970-1-1 0:00:00 0:00",
             "datatype": "int64",
             "id": null,
-            "optional": true,
             "value": null,
             "dimensions": null,
             "missing_value": null,
@@ -193,7 +192,6 @@
             "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
             "datatype": "float64",
             "id": null,
-            "optional": true,
             "value": null,
             "dimensions": ["time"],
             "missing_value": null,
@@ -207,7 +205,6 @@
             "units": null,
             "datatype": null,
             "id": null,
-            "optional": null,
             "value": null,
             "missing_value": null,
             "valid_min": null,
@@ -221,7 +218,6 @@
             "unit": "degree_N",
             "datatype": null,
             "id": null,
-            "optional": true,
             "value": null,
             "dimensions": null,
             "missing_value": null,
@@ -235,7 +231,6 @@
             "unit": "degree_E",
             "datatype": null,
             "id": null,
-            "optional": true,
             "value": null,
             "dimensions": null,
             "missing_value": null,
@@ -249,12 +244,10 @@
             "units": null,
             "datatype": null,
             "id": null,
-            "optional": null,
             "value": null,
             "missing_value": null,
             "valid_min": null,
             "valid_max": null,
-            "coordinates": null,
             "ancillary_variables": null
         }
     }

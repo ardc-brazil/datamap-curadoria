@@ -1,0 +1,1453 @@
+{
+    "global_attributes": {
+        "command_line": {
+            "shortname": "Command line",
+            "long_name": "Command Line",
+            "data_type": "string",
+            "value": ""
+        },
+        "Conventions": {
+            "shortname": "Conventions",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "process_version": {
+            "shortname": "Process version",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "dod_version": {
+            "shortname": "D.O.D. version",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "site_id": {
+            "shortname": "Site identifier",
+            "long_name": "att",
+            "data_type": "string",
+            "value": ""
+        },
+        "platform_id": {
+            "shortname": "Meteo RS Dataset",
+            "long_name": "meteors",
+            "data_type": "string",
+            "value": ""
+        },
+        "facility_id": {
+            "shortname": "Facility identifier",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "data_level": {
+            "shortname": "Data level",
+            "long_name": "b3",
+            "data_type": "string",
+            "value": ""
+        },
+        "location_description": {
+            "shortname": "Location description",
+            "long_name": "Floresta Nacional dos Tapaj\u00f3s, Santar\u00e9m, Par\u00e1, Brazil",
+            "data_type": "string",
+            "value": ""
+        },
+        "data_stream": {
+            "short_name": "Data Stream",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "sampling_interval": {
+            "shortname": "duration",
+            "long_name": "1 day",
+            "unit": "day",
+            "data_type": "float32"
+        },
+        "doi": {
+            "shortname": "DOI",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "history": {
+            "shortname": "History",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "spatial_resolution": {
+            "short_name": "Spatial resolution",
+            "long_name": "0.5 degrees",
+            "data_type": "string",
+            "value": ""
+        },
+        "temporal_resolution": {
+            "short_name": "Temporal resolution",
+            "long_name": "1 day",
+            "data_type": "string",
+            "value": ""
+        },
+        "description": {
+            "short_name": "Description",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "institution": {
+            "short_name": "Institution",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "creation_date": {
+            "short_name": "Creation date",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "source_instrument": {
+            "short_name": "Source instrument",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "references": {
+            "short_name": "References",
+            "long_name": "N/A yet",
+            "data_type": "string",
+            "value": ""
+        },
+        "grid_type": {
+            "short_name": "Grid type",
+            "long_name": "Regular",
+            "type": "string",
+            "value": ""
+        },
+        "data_type": {
+            "short_name": "Data type",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "database": {
+            "short_name": "Database",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "realm": {
+            "short_name": "Realm",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "author": {
+            "short_name": "Author",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "owner": {
+            "short_name": "Owner",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "licence": {
+            "short_name": "Licence",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        },
+        "project": {
+            "short_name": "Project",
+            "long_name": "N/A yet",
+            "type": "string",
+            "value": ""
+        }
+    },
+    "dimensions": {
+        "time": {
+            "length": 3652
+        },
+        "bound": {
+            "length": 2
+        }
+    },
+    "variables": {
+        "base_time": {
+            "short_name": "2002-01-01",
+            "standard_name": NaN,
+            "long_name": "Base time in Epoch",
+            "units": "seconds since 1970-1-1 0:00:00 0:00",
+            "datatype": "int64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1009843200,
+            "valid_max": 1009843200,
+            "ancillary_variables": "time_offset",
+            "dimensions": []
+        },
+        "time_offset": {
+            "short_name": "Time offset",
+            "standard_name": NaN,
+            "long_name": "Time offset from base_time",
+            "units": "seconds since 2002-01-01 00:00:00 0:00",
+            "datatype": "int64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0,
+            "valid_max": 315446400,
+            "ancillary_variables": "base_time",
+            "dimensions": [
+                "time"
+            ]
+        },
+        "time_bounds": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Time bounds",
+            "units": "days since 2000-01-01",
+            "datatype": "datetime64[ns]",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1009843200000000000,
+            "valid_max": 1325376000000000000,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time",
+                "bound"
+            ]
+        },
+        "lat": {
+            "short_name": "Latitude",
+            "standard_name": NaN,
+            "long_name": "North Latitude",
+            "units": "degree_N",
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -2.9100000858306885,
+            "valid_max": -2.9100000858306885,
+            "ancillary_variables": NaN,
+            "dimensions": []
+        },
+        "lon": {
+            "short_name": "Longitude",
+            "standard_name": NaN,
+            "long_name": "East Longitude",
+            "units": "degree_E",
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -54.97999954223633,
+            "valid_max": -54.97999954223633,
+            "ancillary_variables": NaN,
+            "dimensions": []
+        },
+        "time": {
+            "short_name": null,
+            "long_name": null,
+            "units": null,
+            "datatype": null,
+            "id": null,
+            "value": null,
+            "missing_value": null,
+            "valid_min": null,
+            "valid_max": null,
+            "ancillary_variables": null
+        },
+        "stl1_mean": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 298.5936584472656,
+            "valid_max": 304.1011657714844,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "DetailedQA": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 39189.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "EVI": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.6283000000000001,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "NDVI": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.8607,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "SummaryQA": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 3.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "sur_refl_b02": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.5005000000000001,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "sur_refl_b03": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.3453,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "sur_refl_b07": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.2005,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Clear_sky_days": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 252.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Clear_sky_nights": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 251.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Emis_31": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -19.998,
+            "valid_max": 0.492,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Emis_32": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -19.998,
+            "valid_max": 0.496,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "LST_Day_1km": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 306.40000000000003,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "LST_Night_1km": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 297.82,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "QC_Day": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 129.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "QC_Night": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 129.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Fpar": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.87,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "FparExtra_QC": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 72.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "FparLai_QC": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 115.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "FparStdDev": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -9999.0,
+            "valid_max": 0.07,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "Lai": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float64",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -999.9000000000001,
+            "valid_max": 5.7,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.16555723547935486,
+            "valid_max": 0.18377292156219482,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.04036218672990799,
+            "valid_max": 0.048447344452142715,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_mean": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.06131085008382797,
+            "valid_max": 0.24507500231266022,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 293.5738220214844,
+            "valid_max": 297.9562683105469,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 6.367142191265884e-07,
+            "valid_max": 0.0025828599464148283,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 296.86639404296875,
+            "valid_max": 303.751708984375,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_sw_diff_clr_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux - Clear-sky",
+            "long_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux, Clear-sky conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 33.93958282470703,
+            "valid_max": 150.5031280517578,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_sw_diff_all_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux - All-sky",
+            "long_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux, All-sky conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 35.030208587646484,
+            "valid_max": 210.78334045410156,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_sw_diff_pri_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux - Pristine",
+            "long_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux, Pristine conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 20.336458206176758,
+            "valid_max": 24.63749885559082,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_sw_diff_naer_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux - NoAero",
+            "long_name": "Adjusted Surface SW Direct and Diffuse Fluxes Surface Shortwave Diffuse Flux, NoAero conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 25.26666831970215,
+            "valid_max": 233.38336181640625,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_par_diff_clr_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted PAR Fluxes Surface PAR Diffuse Flux - Clear-sky",
+            "long_name": "Adjusted Photosynthetically Active Radiation (PAR) Fluxes Surface PAR Diffuse Flux, Clear-sky conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 20.65937614440918,
+            "valid_max": 79.6968765258789,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_par_diff_all_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted PAR Fluxes Surface PAR Diffuse Flux - All-sky",
+            "long_name": "Adjusted Photosynthetically Active Radiation (PAR) Fluxes Surface PAR Diffuse Flux, All-sky conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 19.136457443237305,
+            "valid_max": 98.81563568115234,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "adj_sfc_par_diff_pri_daily": {
+            "short_name": NaN,
+            "standard_name": "Adjusted PAR Fluxes Surface PAR Diffuse Flux - Pristine",
+            "long_name": "Adjusted Photosynthetically Active Radiation (PAR) Fluxes Surface PAR Diffuse Flux, Pristine conditions, Daily Means",
+            "units": "W m-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 12.84999942779541,
+            "valid_max": 15.580208778381348,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.16556760668754578,
+            "valid_max": 0.18379071354866028,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.04036947339773178,
+            "valid_max": 0.048455022275447845,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_maximum": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.017992308363318443,
+            "valid_max": 0.1432553380727768,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 294.67529296875,
+            "valid_max": 299.14715576171875,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1.0915100574493408e-06,
+            "valid_max": 0.00862633716315031,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 298.188232421875,
+            "valid_max": 307.5798645019531,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "stl1_maximum": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 299.16741943359375,
+            "valid_max": 308.2456970214844,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "prec": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Precipitation",
+            "units": "kg m**-2",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.0,
+            "valid_max": 137.0,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "prmsl": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Pressure reduced to MSL",
+            "units": "Pa",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -8.999999873090293e+33,
+            "valid_max": -8.999999873090293e+33,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_median": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.16555821895599365,
+            "valid_max": 0.18377193808555603,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_median": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.04036152735352516,
+            "valid_max": 0.04844549298286438,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_median": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.043989844620227814,
+            "valid_max": 0.2058868557214737,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_median": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 293.38671875,
+            "valid_max": 297.9312744140625,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_median": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 5.457550287246704e-07,
+            "valid_max": 0.0025187241844832897,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_median": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 296.7633056640625,
+            "valid_max": 303.2530517578125,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "stl1_median": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 298.41424560546875,
+            "valid_max": 303.6446533203125,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.16554413735866547,
+            "valid_max": 0.18375784158706665,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.04035358130931854,
+            "valid_max": 0.04844231158494949,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_minimum": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.12342631816864014,
+            "valid_max": 0.5270177721977234,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 290.8253173828125,
+            "valid_max": 297.22216796875,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.0,
+            "valid_max": 0.0004098154604434967,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 295.419677734375,
+            "valid_max": 301.02178955078125,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "stl1_minimum": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 297.2997741699219,
+            "valid_max": 302.2528076171875,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_std": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 3.449091764196055e-06,
+            "valid_max": 0.0001137701838160865,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_std": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1.6556530226807809e-06,
+            "valid_max": 5.66505768802017e-05,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_std": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -0.17781729996204376,
+            "valid_max": -0.02209373563528061,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_std": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.14206060767173767,
+            "valid_max": 1.8408344984054565,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_std": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.0,
+            "valid_max": 0.0022996370680630207,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_std": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.38381847739219666,
+            "valid_max": 3.186378002166748,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "stl1_std": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.24679505825042725,
+            "valid_max": 2.7425265312194824,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "alnid_variance": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Near IR albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1.1896233997887862e-11,
+            "valid_max": 1.2943654148500627e-08,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "aluvd_variance": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "UV visible albedo for diffuse radiation",
+            "units": "(0 - 1)",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 2.7411868348120594e-12,
+            "valid_max": 3.2092879465039914e-09,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "e_variance": {
+            "short_name": NaN,
+            "standard_name": "lwe_thickness_of_water_evaporation_amount",
+            "long_name": "Evaporation",
+            "units": "m of water equivalent",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": -3.1618990760762244e-05,
+            "valid_max": -4.881331392425636e-07,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "d2m_variance": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre dewpoint temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.020181218162178993,
+            "valid_max": 3.388671636581421,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "ro_variance": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "Runoff",
+            "units": "m",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.0,
+            "valid_max": 5.288331067276886e-06,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "t2m_variance": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": "2 metre temperature",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.14731661975383759,
+            "valid_max": 10.15300464630127,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "stl1_variance": {
+            "short_name": NaN,
+            "standard_name": "surface_temperature",
+            "long_name": "Soil temperature level 1",
+            "units": "K",
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 0.06090779975056648,
+            "valid_max": 7.5214524269104,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "VPD_magnus_mean": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 2.2877159118652344,
+            "valid_max": 18.474245071411133,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "VPD_magnus_minimum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 1.0877361297607422,
+            "valid_max": 13.890003204345703,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        },
+        "VPD_magnus_maximum": {
+            "short_name": NaN,
+            "standard_name": NaN,
+            "long_name": NaN,
+            "units": NaN,
+            "datatype": "float32",
+            "id": NaN,
+            "value": NaN,
+            "missing_value": NaN,
+            "valid_min": 2.502614974975586,
+            "valid_max": 27.674888610839844,
+            "ancillary_variables": NaN,
+            "dimensions": [
+                "time"
+            ]
+        }
+    }
+}

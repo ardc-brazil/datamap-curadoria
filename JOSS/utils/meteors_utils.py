@@ -4,6 +4,7 @@ import json
 import datetime
 import numpy as np
 import pandas as pd
+import os
 
 
 # def read_files_meteors(netcdf_files, columns):
@@ -20,6 +21,13 @@ import pandas as pd
 
 # Functions to create required variables and metadata in dataset
 
+def get_files_from_folder(folder_path):
+    files_list = []
+    for file in os.listdir(folder_path):
+        if file.endswith(".nc"):
+            files_list.append(os.path.join(folder_path, file))
+    return files_list
+
 def create_lat_var_in_dataset(dataset):
     latitude_value = dataset['latitude'].values.item()       
     dataset['lat'] = ((), latitude_value)        
@@ -29,9 +37,8 @@ def create_lat_var_in_dataset(dataset):
         "units": "degree_N",
         "datatype": "float32",
         "id": float('nan'),
-        "optional": True,
         "value": latitude_value,
-        "dimensions": (),
+        "dimensions": ("time"),
         "missing_value": float('nan'),
         "valid_min": float('nan'),
         "valid_max": float('nan'),
@@ -48,9 +55,8 @@ def create_lon_var_in_dataset(dataset):
         "units": "degree_E",
         "datatype": "float32",
         "id": float('nan'),
-        "optional": True,
         "value": longitude_value,
-        "dimensions": (),
+        "dimensions": ("time"),
         "missing_value": float('nan'),
         "valid_min": float('nan'),
         "valid_max": float('nan'),
@@ -71,10 +77,8 @@ def create_time_bounds_var_in_dataset(dataset):
     time_bounds_metadata = {
     "short_name": float('nan'),
     "long_name": "Time bounds",
-    "units": "days since 2000-01-01",
     "datatype": "float64",
     "id": float('nan'),  
-    "optional": False,
     "value": time_bounds,
     "dimensions": ("time","bound"),
     "missing_value": float('nan'),
@@ -97,9 +101,8 @@ def create_times_vars_in_dataset(dataset):
         "units": "seconds since 1970-1-1 0:00:00 0:00",
         "datatype": "int64",
         "id": float('nan'),
-        "optional": True,
         "value": base_time_seconds,
-        "dimensions": float('nan'),
+        "dimensions": (),
         "missing_value": float('nan'),
         "valid_min": float('nan'),
         "valid_max": float('nan'),
@@ -114,9 +117,8 @@ def create_times_vars_in_dataset(dataset):
         "units": f"seconds since {start_date.strftime('%Y-%m-%d %H:%M:%S')} 0:00",
         "datatype": "float64",
         "id": float('nan'),
-        "optional": True,
         "value": float('nan'),
-        "dimensions": ["time"],
+        "dimensions": ("time"),
         "missing_value": float('nan'),
         "valid_min": float('nan'),
         "valid_max": float('nan'),
@@ -133,46 +135,45 @@ def extract_dims_for_metadata(dataset, dim):
         "length": len(dataset[dim])  
     }
 def extract_vars_for_metadata(var):
-        coordenadas = list(var.coords)
+        print(var.dims)
         return {
             "short_name": var.attrs.get("short_name", float('nan')),
             "standard_name": var.attrs.get("standard_name", float('nan')),
             "long_name": var.attrs.get("long_name", float('nan')),
-            "units": "days since 2000-01-01" if var == "time_bounds" else var.attrs.get("units", float('nan')),
+            "units": "days since 2000-01-01" if var.name == "time_bounds" else var.attrs.get("units", float('nan')),
             "datatype": str(var.dtype),
             "id": float('nan'),  
-            "optional": float('nan'),  
             "value": float('nan'),  
             "missing_value": var.attrs.get("missing_value", float('nan')),
             "valid_min": var.min().item() if var.min().notnull() else float('nan'),
-            "valid_max": var.max().item() if var.max().notnull() else float('nan'),
-            "coordinates": coordenadas,  
+            "valid_max": var.max().item() if var.max().notnull() else float('nan'), 
             "ancillary_variables": var.attrs.get("ancillary_variables", float('nan')),
             "dimensions": var.dims  
         }
 
-def create_and_update_metadata_in_json(dataset, json_path):
-    with open(json_path, "r") as json_file:
+def create_and_update_metadata_in_json(dataset, base_json_path, final_json_path):
+    with open(base_json_path, "r") as json_file:
         metadados_base = json.load(json_file)
-
+    
     metadados_dimensoes = {dim: extract_dims_for_metadata(dataset,dim) for dim in dataset.dims}
+    
     metadados_variaveis = {var_name: extract_vars_for_metadata(dataset[var_name]) for var_name in dataset.data_vars}
 
     #Update base JSON with new dimensions and variables
     metadados_base["dimensions"] = metadados_dimensoes
+    
     if "variables" not in metadados_base:
         metadados_base["variables"] = metadados_variaveis
     else:
         metadados_base["variables"].update(metadados_variaveis)
 
-    
-    with open("JOSS/input/support/metadata_base_final.json", "w") as f:
+    with open(final_json_path, "w") as f:
         json.dump(metadados_base, f, indent=4)
 
-    print(json.dumps(metadados_base, indent=4))
+    # print(json.dumps(metadados_base, indent=4))
 
-def create_and_update_metadata_in_dataset(dataset, json_path):
-   with open('/content/netcdf_meteors_info_atualizado.json', 'r') as f:
+def create_and_update_metadata_in_dataset(dataset, json_path, output_path):
+   with open(json_path, 'r') as f:
     metadados = json.load(f)
 
     if 'global_attributes' in metadados:
@@ -181,20 +182,41 @@ def create_and_update_metadata_in_dataset(dataset, json_path):
         
 
     for var_name, var_metadata in metadados['variables'].items():
-        
         if (var_name in dataset.data_vars) and (var_name != "time_bounds"):
             for key, value in var_metadata.items():
                 if key == 'missing_value':
                     dataset[var_name].attrs['missing_value'] = float('nan')  # Atualiza valor ausente
                 else:
                     dataset[var_name].attrs[key] = value
-
+                    
+                  
     for dim_name, dim_metadata in metadados['dimensions'].items():
         if dim_name in dataset.dims:
             for key, value in dim_metadata.items():
                 dataset[dim_name].attrs[key] = value
 
+
+    if 'time' in dataset.dims:
+        time_dim = dataset['time']
+        time_length = len(time_dim)
+        print(1)
+        if time_length > 1:
+            print(2)
+            # Se houver mais de uma data na dimensão time, usar o intervalo (início - fim)
+            start_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
+            print(start_date)
+            end_date = pd.to_datetime(time_dim.values[-1]).strftime('%Y%m%d')
+            print(4)
+            nome_arquivo = f'{output_path}/meteors_metadata_timeseries_{start_date}_{end_date}.nc'
+            # print(f"{nome_arquivo}")
+
+        else:
+            # Se houver apenas uma data, usar essa data
+            single_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
+            nome_arquivo = f'{output_path}/meteors_metadata_0_05deg_{single_date}.nc'
+    print(dataset)
     try:
-        dataset.to_netcdf('JOSS/output/meteors_output/teste.nc')
+        dataset.to_netcdf(nome_arquivo)
+        print(f"Arquivo salvo como {nome_arquivo}")
     except Exception as e:
-        print(f"Ocorreu um erro: {e}, O netcdf não foi salvo")
+        print(f"Ocorreu um erro: {e}. O arquivo {nome_arquivo} não foi salvo.")
