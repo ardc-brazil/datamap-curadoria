@@ -1,13 +1,7 @@
 import utils.meteors_utils as meteors
-import netCDF4
 import xarray as xr
 import argparse
-import numpy as np
-from datetime import datetime, timedelta
-import os
-import gc
 import pathlib
-import json
 
 
 # Create the parser
@@ -20,6 +14,7 @@ JOSS_parser = argparse.ArgumentParser(
 # Add the arguments
 JOSS_parser.add_argument("-v", "--version", action="version", version="%(prog)s 0.1")
 
+#Not working
 JOSS_parser.add_argument(
     "-d",
     "--date",
@@ -27,6 +22,7 @@ JOSS_parser.add_argument(
     default=None,
     help="Expect exporting date in format -d dd/mm/YYYY ou --date dd/mm/YYYY. Read all data inside the data input folder and extract the data for the date specified.",
 )
+
 JOSS_parser.add_argument(
     "-s",
     "--standard",
@@ -39,22 +35,9 @@ JOSS_parser.add_argument(
 # Execute the parse_args() method
 args = JOSS_parser.parse_args()   
 
-# #check if there is at least one action requested
-
-# Define the invalid action combinations
-#invalid_combinations = [
- #   (args.standard, args.list),
-  #  (args.standard, args.pattern),
-   # (args.pattern, args.date),
-#]
-
 # Check if at least one action is requested
 if all(action is None for action in [args.standard, args.date]):
     JOSS_parser.error("No action requested, see --help for further information")
-
-# Check for invalid action combinations
-#if any(action1 is not None and action2 is not None for action1, action2 in invalid_combinations):
- #   JOSS_parser.error("Invalid action requested, see --help for further information")
 
 # Check if date is used with -s or -l options
 if args.date and not (args.standard):
