@@ -65,8 +65,10 @@ if args.standard:
                 meteors.create_time_bounds_var_in_dataset(dataset)
                 
                 meteors.create_times_vars_in_dataset(dataset)
+                
+                meteors.create_time_var_in_dataset(dataset)
                
-                meteors.create_and_update_metadata_in_json(dataset, path_input_support.joinpath("metadata_base.json"),path_input_support.joinpath("netcdf_meteors_info_atualizado.json"))
+                meteors.create_and_update_metadata_in_json(dataset, path_input_support.joinpath("metadata_base_meteors.json"),path_input_support.joinpath("netcdf_meteors_info_atualizado.json"))
                 meteors.create_and_update_metadata_in_dataset(dataset, path_input_support.joinpath("netcdf_meteors_info_atualizado.json"), path_output_data)
             except Exception as e:
                 print(f"Ocorreu um erro: {e}. Não foi possível processar o arquivo {dataset_path}.")

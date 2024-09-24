@@ -36,15 +36,33 @@ def create_lat_var_in_dataset(dataset):
         "long_name": "North Latitude",
         "units": "degree_N",
         "datatype": "float32",
-        "id": float('nan'),
+        "id": -9999,
         "value": latitude_value,
         "dimensions": ("time"),
-        "missing_value": float('nan'),
-        "valid_min": float('nan'),
-        "valid_max": float('nan'),
-        "ancillary_variables": float('nan')
+        "missing_value": -9999,
+        "valid_min": -9999,
+        "valid_max": -9999,
+        "ancillary_variables": -9999
     }    
     dataset['lat'].attrs.update(lat_metadata)
+    
+def create_time_var_in_dataset(dataset):
+    time_values = dataset['time'].values
+    time_metadata = {
+        "short_name": "Time",
+        "long_name": "Time",
+        "units": "days since 2002-01-01",
+        "datatype": "float64",
+        "id": -9999,
+        "value": -9999,
+        "dimensions": ("time"),
+        "missing_value": -9999,
+        "valid_min": -9999,
+        "valid_max": -9999,
+        "ancillary_variables": "time_bounds"
+    }
+    dataset['time'] = (('time',), time_values)
+    dataset['time'].attrs.update(time_metadata)
 
 def create_lon_var_in_dataset(dataset):
     longitude_value = dataset['longitude'].values.item()       
@@ -54,13 +72,13 @@ def create_lon_var_in_dataset(dataset):
         "long_name": "East Longitude",
         "units": "degree_E",
         "datatype": "float32",
-        "id": float('nan'),
+        "id": -9999,
         "value": longitude_value,
         "dimensions": ("time"),
-        "missing_value": float('nan'),
-        "valid_min": float('nan'),
-        "valid_max": float('nan'),
-        "ancillary_variables": float('nan')
+        "missing_value": -9999,
+        "valid_min": -9999,
+        "valid_max": -9999,
+        "ancillary_variables": -9999
     }    
     dataset['lon'].attrs.update(lon_metadata)
 
@@ -75,16 +93,16 @@ def create_time_bounds_var_in_dataset(dataset):
     ])
 
     time_bounds_metadata = {
-    "short_name": float('nan'),
+    "short_name": -9999,
     "long_name": "Time bounds",
     "datatype": "float64",
-    "id": float('nan'),  
+    "id": -9999,  
     "dimensions": ("time","bound"),
-    "missing_value": float('nan'),
-    "valid_min": float('nan'),
-    "valid_max": float('nan'),
+    "missing_value": -9999,
+    "valid_min": -9999,
+    "valid_max": -9999,
     "coordinates": "time",
-    "ancillary_variables": float('nan')
+    "ancillary_variables": -9999
     }
     dataset['time_bounds'] = (('time', 'bound'), time_bounds)
     dataset['time_bounds'].attrs.update(time_bounds_metadata)
@@ -99,12 +117,12 @@ def create_times_vars_in_dataset(dataset):
         "long_name": "Base time in Epoch",
         "units": "seconds since 1970-1-1 0:00:00 0:00",
         "datatype": "int64",
-        "id": float('nan'),
+        "id": -9999,
         "value": base_time_seconds,
         "dimensions": (),
-        "missing_value": float('nan'),
-        "valid_min": float('nan'),
-        "valid_max": float('nan'),
+        "missing_value": -9999,
+        "valid_min": -9999,
+        "valid_max": -9999,
         "ancillary_variables": "time_offset"
     }
 
@@ -115,12 +133,12 @@ def create_times_vars_in_dataset(dataset):
         "long_name": "Time offset from base_time",
         "units": f"seconds since {start_date.strftime('%Y-%m-%d %H:%M:%S')} 0:00",
         "datatype": "float64",
-        "id": float('nan'),
-        "value": float('nan'),
+        "id": -9999,
+        "value": -9999,
         "dimensions": ("time"),
-        "missing_value": float('nan'),
-        "valid_min": float('nan'),
-        "valid_max": float('nan'),
+        "missing_value": -9999,
+        "valid_min": -9999,
+        "valid_max": -9999,
         "ancillary_variables": "base_time"
     }
 
@@ -134,20 +152,22 @@ def extract_dims_for_metadata(dataset, dim):
         "length": len(dataset[dim])  
     }
 def extract_vars_for_metadata(var):
-        return {
-            "short_name": var.attrs.get("short_name", float('nan')),
-            "standard_name": var.attrs.get("standard_name", float('nan')),
-            "long_name": var.attrs.get("long_name", float('nan')),
-            "units": "days since 2000-01-01" if var.name == "time_bounds" else var.attrs.get("units", float('nan')),
-            "datatype": str(var.dtype),
-            "id": float('nan'),  
-            "value": float('nan'),  
-            "missing_value": var.attrs.get("missing_value", float('nan')),
-            "valid_min": var.min().item() if var.min().notnull() else float('nan'),
-            "valid_max": var.max().item() if var.max().notnull() else float('nan'), 
-            "ancillary_variables": var.attrs.get("ancillary_variables", float('nan')),
-            "dimensions": var.dims  
-        }
+    # Filter out -9999 values from the dataset
+    var = var.where(var != -9999)
+    return {
+        "short_name": var.attrs.get("short_name", -9999),
+        "standard_name": var.attrs.get("standard_name", -9999),
+        "long_name": var.attrs.get("long_name", -9999),
+        "units": "days since 2002-01-01" if var.name == "time_bounds" else var.attrs.get("units", -9999),
+        "datatype": str(var.dtype),
+        "id": -9999,  
+        "value": -9999,  
+        "missing_value": var.attrs.get("missing_value", -9999),
+        "valid_min": var.min().item() if var.min().notnull() else -9999,
+        "valid_max": var.max().item() if var.max().notnull() else -9999, 
+        "ancillary_variables": var.attrs.get("ancillary_variables", -9999),
+        "dimensions": var.dims  
+    }
 
 def create_and_update_metadata_in_json(dataset, base_json_path, final_json_path):
     with open(base_json_path, "r") as json_file:
@@ -174,14 +194,14 @@ def create_and_update_metadata_in_dataset(dataset, json_path, output_path):
 
     if 'global_attributes' in metadados:
         for attr_name, attr_value in metadados['global_attributes'].items():
-            dataset.attrs[attr_name] = attr_value['long_name']
+            dataset.attrs[attr_name] = attr_value['value']
         
 
     for var_name, var_metadata in metadados['variables'].items():
         if (var_name in dataset.data_vars) and (var_name != "time_bounds"):
             for key, value in var_metadata.items():
                 if key == 'missing_value':
-                    dataset[var_name].attrs['missing_value'] = float('nan')  # Atualiza valor ausente
+                    dataset[var_name].attrs['missing_value'] = -9999  # Update missing value
                 else:
                     dataset[var_name].attrs[key] = value
                     
@@ -196,18 +216,21 @@ def create_and_update_metadata_in_dataset(dataset, json_path, output_path):
         time_dim = dataset['time']
         time_length = len(time_dim)
         if time_length > 1:
-            # Se houver mais de uma data na dimensão time, usar o intervalo (início - fim)
+            # If there is more than one date in the time dimension, use the range (start - end)
             start_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
             end_date = pd.to_datetime(time_dim.values[-1]).strftime('%Y%m%d')
-            nome_arquivo = f'{output_path}/meteors_metadata_timeseries_{start_date}_{end_date}.nc'
+            file_name = f'meteors_metadata_timeseries_{start_date}_{end_date}.nc'
+            path_name = f'{output_path}/{file_name}'
 
         else:
-            # Se houver apenas uma data, usar essa data
+            # If there is only one date, use that date
             single_date = pd.to_datetime(time_dim.values[0]).strftime('%Y%m%d')
             file_name = f'meteors_metadata_0_05deg_{single_date}.nc'
             path_name = f'{output_path}/{file_name}'
+            
+            
     try:
         dataset.to_netcdf(path_name)
-        print(f"Arquivo salvo como {file_name}")
+        print(f"File saved as {file_name}")
     except Exception as e:
-        print(f"Ocorreu um erro: {e}. O arquivo {nome_arquivo} não foi salvo.")
+        print(f"An error occurred: {str(e)}. The file {file_name} was not saved.")
