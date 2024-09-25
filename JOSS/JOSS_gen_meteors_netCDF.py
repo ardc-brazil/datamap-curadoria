@@ -14,15 +14,6 @@ JOSS_parser = argparse.ArgumentParser(
 # Add the arguments
 JOSS_parser.add_argument("-v", "--version", action="version", version="%(prog)s 0.1")
 
-#Not working
-JOSS_parser.add_argument(
-    "-d",
-    "--date",
-    action="store",
-    default=None,
-    help="Expect exporting date in format -d dd/mm/YYYY ou --date dd/mm/YYYY. Read all data inside the data input folder and extract the data for the date specified.",
-)
-
 JOSS_parser.add_argument(
     "-s",
     "--standard",
@@ -36,13 +27,9 @@ JOSS_parser.add_argument(
 args = JOSS_parser.parse_args()   
 
 # Check if at least one action is requested
-if all(action is None for action in [args.standard, args.date]):
+if all(action is None for action in [args.standard]):
     JOSS_parser.error("No action requested, see --help for further information")
 
-# Check if date is used with -s or -l options
-if args.date and not (args.standard):
-    JOSS_parser.error("Invalid action requested, date needs to be used with -s or -l, see --help for further information")
-    
 # Folders and files path
 path_cwd = pathlib.Path.cwd()
 path_input = path_cwd.joinpath("input")
@@ -71,9 +58,9 @@ if args.standard:
                 meteors.create_and_update_metadata_in_json(dataset, path_input_support.joinpath("metadata_base_meteors.json"),path_input_support.joinpath("netcdf_meteors_info_atualizado.json"))
                 meteors.create_and_update_metadata_in_dataset(dataset, path_input_support.joinpath("netcdf_meteors_info_atualizado.json"), path_output_data)
             except Exception as e:
-                print(f"Ocorreu um erro: {e}. Não foi possível processar o arquivo {dataset_path}.")
+                print(f"An error occurred: {e}. Could not process the file {dataset_path}.")
     except Exception as e:
-        print(f"Ocorreu um erro: {e}. Não foi possível listar os caminhos dos arquivos")
+        print(f"An error occurred: {e}. Could not list the file paths.")
 
 print("All data have been processed.")
 quit()

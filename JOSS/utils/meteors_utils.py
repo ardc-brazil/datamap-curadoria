@@ -173,11 +173,21 @@ def create_and_update_metadata_in_json(dataset, base_json_path, final_json_path)
     with open(base_json_path, "r") as json_file:
         metadados_base = json.load(json_file)
     
-    metadados_dimensoes = {dim: extract_dims_for_metadata(dataset,dim) for dim in dataset.dims}
+    metadados_dimensoes = {dim: extract_dims_for_metadata(dataset, dim) for dim in dataset.dims}
     
-    metadados_variaveis = {var_name: extract_vars_for_metadata(dataset[var_name]) for var_name in dataset.data_vars}
+    metadados_variaveis = {}
+    for var_name in dataset.data_vars:
+        var_metadata = extract_vars_for_metadata(dataset[var_name])
+        base_metadata = metadados_base.get("variables", {}).get(var_name, {})
+        
+        # Update base metadata with valid values from netcdf if base metadata value is -9999
+        for key, value in var_metadata.items():
+            if base_metadata.get(key, -9999) == -9999 and value != -9999:
+                base_metadata[key] = value
+        
+        metadados_variaveis[var_name] = base_metadata
 
-    #Update base JSON with new dimensions and variables
+    # Update base JSON with new dimensions and variables
     metadados_base["dimensions"] = metadados_dimensoes
     
     if "variables" not in metadados_base:

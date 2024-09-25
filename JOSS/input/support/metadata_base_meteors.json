@@ -240,7 +240,7 @@
             "ancillary_variables": ["time_offset", "time_bounds"]
         },
         "stl1_mean": {
-            "short_name": -9999,
+            "short_name": "stl1_mean",
             "standard_name": "surface_temperature",
             "long_name": "Soil temperature level 1",
             "units": "K",
@@ -248,8 +248,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 298.5936584472656,
-            "valid_max": 304.1011657714844,
             "ancillary_variables": -9999
         },
         "DetailedQA": {
@@ -261,8 +259,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 39189.0,
             "ancillary_variables": -9999
         },
         "EVI": {
@@ -274,8 +270,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.6283000000000001,
             "ancillary_variables": -9999
         },
         "NDVI": {
@@ -287,8 +281,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.8607,
             "ancillary_variables": -9999
         },
         "SummaryQA": {
@@ -300,8 +292,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 3.0,
             "ancillary_variables": -9999
         },
         "sur_refl_b02": {
@@ -313,8 +303,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.5005000000000001,
             "ancillary_variables": -9999
         },
         "sur_refl_b03": {
@@ -326,8 +314,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.3453,
             "ancillary_variables": -9999
         },
         "sur_refl_b07": {
@@ -339,8 +325,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.2005,
             "ancillary_variables": -9999
         },
         "Clear_sky_days": {
@@ -352,8 +336,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 252.0,
             "ancillary_variables": -9999
         },
         "Clear_sky_nights": {
@@ -365,8 +347,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 251.0,
             "ancillary_variables": -9999
         },
         "Emis_31": {
@@ -378,8 +358,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -19.998,
-            "valid_max": 0.492,
             "ancillary_variables": -9999
         },
         "Emis_32": {
@@ -391,8 +369,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -19.998,
-            "valid_max": 0.496,
             "ancillary_variables": -9999
         },
         "LST_Day_1km": {
@@ -404,9 +380,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 306.40000000000003,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["QC_Day"]
         },
         "LST_Night_1km": {
             "short_name": "LST_Night_1km",
@@ -417,9 +391,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 297.82,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["QC_Night"]
         },
         "QC_Day": {
             "short_name": "QC_Day",
@@ -430,9 +402,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 129.0,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["LST_Day_1km"]
         },
         "QC_Night": {
             "short_name": "QC_Night",
@@ -443,9 +413,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 129.0,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["LST_Night_1km"]
         },
         "Fpar": {
             "short_name": "Fpar",
@@ -456,9 +424,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.87,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["FparExtraQC", "FparLai_QC", "FparStdDev"]
         },
         "FparExtra_QC": {
             "short_name": "FparExtra_QC",
@@ -469,9 +435,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 72.0,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["FparLai_QC", "FparStdDev", "Fpar"]
         },
         "FparLai_QC": {
             "short_name": "FparLai_QC",
@@ -482,9 +446,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 115.0,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["FparExtraQC","FparStdDev", "Fpar", "Lai"]
         },
         "FparStdDev": {
             "short_name": "FparStdDev",
@@ -495,9 +457,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -9999.0,
-            "valid_max": 0.07,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["FparExtraQC","FparLai_QC","Fpar"]
         },
         "Lai": {
             "short_name": "Lai",
@@ -508,9 +468,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": -999.9000000000001,
-            "valid_max": 5.7,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["FparLai_QC"]
         },
         "alnid_mean": {
             "short_name": "alnid_mean",
@@ -521,8 +479,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 0.16555723547935486,
-            "valid_max": 0.18377292156219482,
             "ancillary_variables": -9999
         },
         "aluvd_mean": {
@@ -534,8 +490,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 0.04036218672990799,
-            "valid_max": 0.048447344452142715,
             "ancillary_variables": -9999
         },
         "e_mean": {
@@ -547,8 +501,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 0.06131085008382797,
-            "valid_max": 0.24507500231266022,
             "ancillary_variables": -9999
         },
         "d2m_mean": {
@@ -560,8 +512,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 293.5738220214844,
-            "valid_max": 297.9562683105469,
             "ancillary_variables": -9999
         },
         "ro_mean": {
@@ -573,8 +523,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 6.367142191265884e-07,
-            "valid_max": 0.0025828599464148283,
             "ancillary_variables": -9999
         },
         "t2m_mean": {
@@ -586,8 +534,6 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "valid_min": 296.86639404296875,
-            "valid_max": 303.751708984375,
             "ancillary_variables": -9999
         },
         "adj_sfc_sw_diff_clr_daily": {
@@ -929,7 +875,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["alnid_mean", "alnid_variance"]
         },
         "aluvd_std": {
             "short_name": "aluvd_std",
@@ -940,7 +886,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["aluvd_mean", "aluvd_variance"]
         },
         "e_std": {
             "short_name": "e_std",
@@ -951,7 +897,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["e_mean", "e_variance"]
         },
         "d2m_std": {
             "short_name": "d2m_std",
@@ -962,7 +908,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["d2m_mean", "d2m_variance"]
         },
         "ro_std": {
             "short_name": "ro_std",
@@ -973,7 +919,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["ro_mean", "ro_variance"]
         },
         "t2m_std": {
             "short_name": "t2m_std",
@@ -984,7 +930,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["t2m_mean", "t2m_variance"]
         },
         "stl1_std": {
             "short_name": "stl1_std",
@@ -995,7 +941,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["stl1_mean", "stl1_variance"]
         },
         "alnid_variance": {
             "short_name": "alnid_variance",
@@ -1006,7 +952,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["alnid_mean", "alnid_std"]
         },
         "aluvd_variance": {
             "short_name": "aluvd_variance",
@@ -1017,7 +963,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["aluvd_mean", "aluvd_std"]
         },
         "e_variance": {
             "short_name": "e_variance",
@@ -1028,7 +974,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["e_mean", "e_std"]
         },
         "d2m_variance": {
             "short_name": "d2m_variance",
@@ -1039,7 +985,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["d2m_mean", "d2m_std"]
         },
         "ro_variance": {
             "short_name": "ro_variance",
@@ -1050,7 +996,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["ro_mean", "ro_std"]
         },
         "t2m_variance": {
             "short_name": "t2m_variance",
@@ -1061,7 +1007,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables":  ["t2m_mean", "t2m_std"]
         },
         "stl1_variance": {
             "short_name": "stl1_variance",
@@ -1072,7 +1018,7 @@
             "id": -9999,
             "value": -9999,
             "missing_value": -9999,
-            "ancillary_variables": -9999
+            "ancillary_variables": ["stl1_mean", "stl1_std"]
         },
         "VPD_magnus_mean": {
             "short_name": "VPD_magnus_mean",
