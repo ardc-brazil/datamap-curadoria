@@ -162,6 +162,7 @@ def extract_vars_for_metadata(var):
         "datatype": str(var.dtype),
         "id": -9999,  
         "value": -9999,  
+        "_FillValue": -9999,
         "missing_value": var.attrs.get("missing_value", -9999),
         "valid_min": var.min().item() if var.min().notnull() else -9999,
         "valid_max": var.max().item() if var.max().notnull() else -9999, 
