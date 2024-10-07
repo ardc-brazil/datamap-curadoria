@@ -3,254 +3,126 @@
         "command_line": {
             "shortname": "Command line",
             "long_name": "JOSS_gen_netCDF.py -s",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
         },
         "process_version": {
             "shortname": "Process version",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "dod_version": {
             "shortname": "D.O.D. version",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "Conventions": {
             "shortname": "Conventions",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "data_level": {
             "shortname": "Data level",
             "long_name": "b1",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "699",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "platform_id": {
             "shortname": "impact disdrometer",
             "long_name": "rd80",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "697",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "input_source": {
             "shortname": "Input Source",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "site_id": {
             "shortname": "Site identifier",
             "long_name": "att",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "696",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "location_description": {
             "shortname": "Location description",
             "long_name": "ATTO-Campina site, Amazonas, Brazil",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "700",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "facility_id": {
             "shortname": "id_int",
             "long_name": "CA",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "698",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "sampling_interval": {
             "shortname": "duration",
             "long_name": "60 seconds",
-            "unit": "seconds",
             "datatype": "float32",
-            "id": "702",
-            "optional": true,
-            "value": "60",
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": "60"
+
         },
         "effective_measurement_area": {
             "shortname": "Effective measurement area",
             "long_name": "Effective measurement area = 0.005 mˆ2",
-            "unit": "mˆ2",
             "datatype": "float32",
-            "id": null,
-            "optional": true,
-            "value": "0.005",
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": "0.005"
+
         },
         "doi": {
             "shortname": "D.O.I.",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "699",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "datastream": {
             "shortname": "Datastrem",
             "long_name": "att01rd80CA.b1",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "701",
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
+
         },
         "averaging_interval": {
             "shortname": "duration",
             "long_name": "None",
-            "unit": "second",
             "datatype": "float32",
-            "id": "703",
-            "optional": true,
-            "value": "60",
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": "60"
+
         },
         "serial_number": {
             "shortname": "Serial Number",
             "long_name": "2102502",
-            "unit": "unitless",
             "datatype": "int64",
-            "id": "704",
-            "optional": true,
-            "value": "2102502",
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": "2102502"
+
         },
         "calib_date": {
             "shortname": "Calibration date",
             "long_name": "2021-08-06",
-            "unit": "unitless",
             "datatype": "string",
-            "id": "705",
-            "optional": true,
-            "value": "2021-08-06",
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": "2021-08-06"
+
         },
         "history": {
             "shortname": "History",
             "long_name": "N/A yet",
-            "unit": "unitless",
             "datatype": "string",
-            "id": null,
-            "optional": true,
-            "value": null,
-            "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
-            "ancillary_variables": null
+            "value": null
         }
     },
     "dimensions": {
@@ -285,6 +157,20 @@
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": "base_time"
+        },
+        "time_bounds": {
+            "short_name": "Time bounds",
+            "long_name": "Time bounds",
+            "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
+            "datatype": "float64",
+            "id": "694",
+            "optional": true,
+            "value": null,
+            "dimensions": ["time", "bound"],
+            "missing_value": null,
+            "valid_min": null,
+            "valid_max": null,
+            "ancillary_variables": null
         },
         "lat": {
             "shortname": "Latitude",
