@@ -8,21 +8,21 @@
         },
         "process_version": {
             "shortname": "Process version",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
 
         },
         "dod_version": {
             "shortname": "D.O.D. version",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
 
         },
         "Conventions": {
             "shortname": "Conventions",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
 
@@ -43,7 +43,7 @@
         },
         "input_source": {
             "shortname": "Input Source",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
 
@@ -85,7 +85,7 @@
         },
         "doi": {
             "shortname": "D.O.I.",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
 
@@ -120,7 +120,7 @@
         },
         "history": {
             "shortname": "History",
-            "long_name": "N/A yet",
+            "long_name": "N/A",
             "datatype": "string",
             "value": null
         }
@@ -139,7 +139,7 @@
             "optional": true,
             "value": null,
             "dimensions": null,
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": "time_offset"
@@ -153,7 +153,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": "base_time"
@@ -161,13 +161,14 @@
         "time": {
             "short_name": "Time",
             "long_name": "Time offset from midnight",
-            "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
+            "standard_name": "Time offset from midnight",
+            "units": null,
             "datatype": "float64",
             "id": "694",
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -175,41 +176,41 @@
         "lat": {
             "shortname": "Latitude",
             "long_name": "North Latitude",
-            "unit": "degree_N",
+            "units": "degree_N",
             "datatype": "float32",
             "id": "719",
             "optional": true,
             "value": -2.1815896,
             "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
+            "missing_value": -9999,
+            "valid_min": -2.1815896,
+            "valid_max": -2.1815896,
             "ancillary_variables": null
         },
         "lon": {
             "shortname": "East Longitude",
             "long_name": "East Longitude",
-            "unit": "degree_E",
+            "units": "degree_E",
             "datatype": "float32",
             "id": "720",
             "optional": true,
             "value": -59.0218639,
             "dimensions": null,
-            "missing_value": null,
-            "valid_min": null,
-            "valid_max": null,
+            "missing_value": -9999,
+            "valid_min": -59.0218639,
+            "valid_max": -59.0218639,
             "ancillary_variables": null
         },
         "alt": {
             "shortname": "Altitude",
             "long_name": "Altitude above mean sea level",
-            "unit": "m",
+            "units": "m",
             "datatype": "float32",
             "id": "721",
             "optional": true,
             "value": 59.0,
             "dimensions": null,
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -223,7 +224,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["drop_avg_class"],
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -237,7 +238,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["drop_avg_class"],
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -251,7 +252,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time", "drop_avg_class"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -265,7 +266,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -279,7 +280,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": "number_detected_drops"
@@ -293,7 +294,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -303,11 +304,11 @@
             "long_name": "Diameter of the smallest drop registered during to sample interval",
             "units": "mm",
             "datatype": "float32",
-            "id": "N/A yet",
+            "id": "N/A",
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -321,7 +322,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time", "drop_avg_class"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -335,7 +336,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -349,7 +350,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": "radar_reflectivity = -99. when no rain is detected"
@@ -363,7 +364,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -377,7 +378,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -391,7 +392,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -405,7 +406,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["time"],
-            "missing_value": -9999,
+            "missing_value": -99999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null
@@ -419,7 +420,7 @@
             "optional": true,
             "value": null,
             "dimensions": ["drop_avg_class"],
-            "missing_value": null,
+            "missing_value": -9999,
             "valid_min": null,
             "valid_max": null,
             "ancillary_variables": null

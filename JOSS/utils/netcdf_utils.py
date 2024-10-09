@@ -33,9 +33,9 @@ def extract_variables(
                 #check if the variable is optional (False means that the variable is not mandatory):
                 if netCDF_info[key][var]['optional'] is True:
                     #checking if the variable has value in the data:
-                    if netCDF_info[key][var]['value'] is not None:
+                    #if netCDF_info[key][var]['value'] is not None:
                         #filling the variable with the data:
-                        variables[var] = netCDF_info[key][var]['value']
+                    variables[var] = netCDF_info[key][var]['value']
 
     #creating and filling variables manually:
     variables["base_time"] = basetime
