@@ -191,6 +191,7 @@ def generate_netCDF(
 
     print("Generating netCDF:", cdf_filename)
 
+
     # check if file already exists, if true delete
     if os.path.exists(path_output_data.joinpath(cdf_filename)):
         os.remove(path_output_data.joinpath(cdf_filename))
@@ -198,6 +199,11 @@ def generate_netCDF(
 
     # Create a new empty dataset with dimensions based on dimensions_nc
     ds = xr.Dataset(coords={dim: vec for dim, vec in dimensions_nc.items()})
+
+    # Add metadata for dimensions
+    for dim, dim_info in netCDF_info.get('dimensions', {}).items():
+        ds[dim].attrs['long_name'] = dim
+        ds[dim].attrs['standard_name'] = dim
 
     # Create the variables and fill them with values from variables_nc
     for key, value in netCDF_info.get('variables', {}).items():
@@ -250,8 +256,31 @@ def generate_netCDF(
 
     pathlib.Path(path_output_data).mkdir(parents=True, exist_ok=True)
 
+    # Quality control for time using time_quality_control function
+    time_values = ds['time'].values
+    time_interval = np.diff(time_values)
+    time_interval = np.insert(time_interval, 0, 0)
+    integration_time = netCDF_info['global attributes']['sampling_interval']['value']
+    integration_time = int(integration_time)
+    integration_time = np.repeat(integration_time, len(time_interval))
+    qc_time_interval = time_quality_control(time_interval, integration_time)
+    ds['qc_time'] = xr.DataArray(qc_time_interval, coords={'time': ds['time']}, dims=['time'])
+    ds['qc_time'].attrs['long_name'] = 'Time quality control'
+    ds['qc_time'].attrs['units'] = '1 = bad data, 0 = good data'
+
     #write the output file in JOSS_CDF (netCDF file), unlimited the time dimension and delete the chunking by using the format 'NETCDF3_CLASSIC':
     ds.to_netcdf(path_output_data.joinpath(cdf_filename),unlimited_dims='time',format='NETCDF3_CLASSIC')
 
+    # Move variables to the first position: base_time, time_offset, time
+    ds = ds[['base_time', 'time_offset', 'time'] + [var for var in ds.variables if var not in ['base_time', 'time_offset', 'time']]]
+
     print("netCDF created")
 
+
+# Time quality control
+def time_quality_control(time_interval, integration_time):
+    qc_time_interval = np.where(time_interval > integration_time, 1, 0)
+    if np.max(qc_time_interval) == 1:
+        print("WARNING: The time interval is longer than the integration time")
+        print("The data will be considered bad")
+    return qc_time_interval
