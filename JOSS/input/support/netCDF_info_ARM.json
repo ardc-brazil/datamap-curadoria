@@ -253,7 +253,7 @@
         "num_drop": {
             "short_name": "Number of drops",
             "long_name": "Number of raindrops measured for each class during time interval",
-            "standard_name": "N/A",
+            "standard_name": "Number of raindrops measured for each class during time interval",
             "units": "unitless",
             "datatype": "float32",
             "id": "706",
@@ -268,7 +268,7 @@
         "number_detected_drops": {
             "short_name": "Total number of raindrops detected",
             "long_name": "Total number of raindrops measured for all classes during time interval",
-            "standard_name": "N/A",
+            "standard_name": "Total number of raindrops measured for all classes during time interval",
             "units": "unitless",
             "datatype": "float32",
             "id": "706",
@@ -283,7 +283,7 @@
         "qc_number_detected_particles": {
             "short_name": "Quality check results on field: Number of particles detected",
             "long_name": "Quality check results on field: Number of particles detected",
-            "standard_name": "N/A",
+            "standard_name": "Quality check results on field: Number of particles detected",
             "units": "1",
             "datatype": "int64",
             "id": "706",
@@ -298,7 +298,7 @@
         "diam_max": {
             "short_name": "Diameter of largest drop",
             "long_name": "Diameter of the Largest drop registered during to sample interval",
-            "standard_name": "N/A",
+            "standard_name": "Diameter of the Largest drop registered during to sample interval",
             "units": "mm",
             "datatype": "float32",
             "id": "708",
@@ -313,7 +313,7 @@
         "diam_min": {
             "short_name": "Diameter of smallest drop",
             "long_name": "Diameter of the smallest drop registered during to sample interval",
-            "standard_name": "N/A",
+            "standard_name":  "Diameter of the smallest drop registered during to sample interval",
             "units": "mm",
             "datatype": "float32",
             "id": "N/A",
@@ -328,7 +328,7 @@
         "num_drop_density": {
             "short_name": "Number density of drops of the diameter",
             "long_name": "Number density of drops of the diameter corresponding to every size class per unit volume",
-            "standard_name": "N/A",
+            "standard_name": "Number density of drops of the diameter corresponding to every size class per unit volume",
             "units": "1/(m^3-mm)",
             "datatype": "float32",
             "id": "708",
@@ -343,7 +343,7 @@
         "rain_rate": {
             "short_name": "Rain Rate",
             "long_name": "Rain intensity",
-            "standard_name": "N/A",
+            "standard_name": "Rain intensity",
             "units": "mm/h",
             "datatype": "float32",
             "id": "713",
@@ -358,7 +358,7 @@
         "radar_reflectivity": {
             "short_name": "Radar reflectivity ",
             "long_name": "Radar reflectivity",
-            "standard_name": "N/A",
+            "standard_name": "Radar reflectivity",
             "units": "dBZ",
             "datatype": "float32",
             "id": "714",
@@ -373,7 +373,7 @@
         "liq_water": {
             "short_name": "Liquid Water Content",
             "long_name": "Liquid water content",
-            "standard_name": "N/A",
+            "standard_name": "Liquid water content",
             "units": "g/m^3",
             "datatype": "float32",
             "id": "715",
@@ -388,7 +388,7 @@
         "energy_flux": {
             "short_name": "Energy flux",
             "long_name": "Energy flux (raw)",
-            "standard_name": "N/A",
+            "standard_name": "Energy flux (raw)",
             "units": "J/(m^2 h)",
             "datatype": "float32",
             "id": "716",
@@ -403,7 +403,7 @@
         "slope_parameter": {
             "short_name": "Slope parameter",
             "long_name": "Slope parameter",
-            "standard_name": "N/A",
+            "standard_name":  "Slope parameter",
             "units": "per millimeter",
             "datatype": "float32",
             "id": "716",
@@ -418,7 +418,7 @@
         "distribution_intercept": {
             "short_name": "Distribution intercept",
             "long_name": "Distribution intercept - N0",
-            "standard_name": "N/A",
+            "standard_name": "Distribution intercept - N0",
             "units": "1/(m^3 mm)",
             "datatype": "float32",
             "id": "716",
@@ -433,7 +433,7 @@
         "drop_avg_class": {
             "short_name": "Average diameter of drops",
             "long_name": "Diameter of drop size class",
-            "standard_name": "N/A",
+            "standard_name": "Diameter of drop size class",
             "units": "mm",
             "datatype": "float32",
             "id": "707",
