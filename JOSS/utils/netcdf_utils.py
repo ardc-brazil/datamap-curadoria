@@ -207,7 +207,7 @@ def generate_netCDF(
 
     # Create the variables and fill them with values from variables_nc
     for key, value in netCDF_info.get('variables', {}).items():
-        optional = value.get('optional', False)
+        optional = value.get('optional', False) 
         var_data = variables_nc.get(key)
 
         if var_data is None and optional:
@@ -237,6 +237,7 @@ def generate_netCDF(
 
     ds['base_time'].attrs['string'] = basetime_string
     ds['time_offset'].attrs['units'] = 'seconds since '+basetime_string
+    ds['time'].attrs = netCDF_info['variables']['time']
     ds['time'].attrs['units'] = 'seconds since '+basetime_string  #My midnight time is equal to the basetime, if not, use the line below:
     #ds['time'].attrs['units'] = 'seconds since '+datetime.utcfromtimestamp(basetime).strftime('%Y-%m-%d 00:00:00 0:00')
 
@@ -257,6 +258,9 @@ def generate_netCDF(
     pathlib.Path(path_output_data).mkdir(parents=True, exist_ok=True)
 
     # Quality control for time using time_quality_control function
+
+    ds = update_attr_valid_values(ds)
+  
     time_values = ds['time'].values
     time_interval = np.diff(time_values)
     time_interval = np.insert(time_interval, 0, 0)
@@ -284,3 +288,11 @@ def time_quality_control(time_interval, integration_time):
         print("WARNING: The time interval is longer than the integration time")
         print("The data will be considered bad")
     return qc_time_interval
+
+def update_attr_valid_values(ds):
+    for var_name, var_data in ds.data_vars.items():
+            if var_name not in ["base_time", "time_offset", "time", "lat", "lon", "alt"]:
+                var_data = var_data.where(var_data != -9999)
+                ds[var_name].attrs['valid_min'] = round(var_data.min().item(),2)
+                ds[var_name].attrs['valid_max'] = round(var_data.max().item(),2)
+    return ds
