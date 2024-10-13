@@ -12,7 +12,7 @@ def extract_variables(
     netCDF_info
 ):
     print("Extracting variables from the data")
-    
+
     #defining the dimensions and variables of the netCDF file:
     #    "time": "It is always a daily file, please, check the integration_time in variable_info.json",
     #    "drop_avg_class": "check the variable_info.json"
@@ -187,6 +187,7 @@ def generate_netCDF(
     variables_nc,
     netCDF_info,
     path_output_data,
+    day_data
 ):
 
     print("Generating netCDF:", cdf_filename)
@@ -257,38 +258,48 @@ def generate_netCDF(
 
     pathlib.Path(path_output_data).mkdir(parents=True, exist_ok=True)
 
-    # Quality control for time using time_quality_control function
-
+    
+    # Add time quality control
     ds = update_attr_valid_values(ds)
-  
-    time_values = ds['time'].values
+    # time quality control
+    ds = time_quality_control(ds, netCDF_info, day_data)
+    # Move variables to the first position: base_time, time_offset, time
+    ds = ds[['base_time', 'time_offset', 'time'] + [var for var in ds.variables if var not in ['base_time', 'time_offset', 'time']]]
+    #write the output file in JOSS_CDF (netCDF file), unlimited the time dimension and delete the chunking by using the format 'NETCDF3_CLASSIC':
+    # Add max compression level
+    ds.to_netcdf(path_output_data.joinpath(cdf_filename),
+                unlimited_dims='time',
+                format='NETCDF3_CLASSIC',
+                encoding={var: {'zlib': True, 'complevel': 9} for var in ds.variables})
+    print("netCDF created")
+
+
+# Time quality control
+def time_quality_control(ds, netCDF_info, day_data):
+    time_values = ds['time'].values.astype(int)
     time_interval = np.diff(time_values)
     time_interval = np.insert(time_interval, 0, 0)
     integration_time = netCDF_info['global attributes']['sampling_interval']['value']
     integration_time = int(integration_time)
     integration_time = np.repeat(integration_time, len(time_interval))
-    qc_time_interval = time_quality_control(time_interval, integration_time)
-    ds['qc_time'] = xr.DataArray(qc_time_interval, coords={'time': ds['time']}, dims=['time'])
-    ds['qc_time'].attrs['long_name'] = 'Time quality control'
-    ds['qc_time'].attrs['units'] = '1 = bad data, 0 = good data'
-
-    #write the output file in JOSS_CDF (netCDF file), unlimited the time dimension and delete the chunking by using the format 'NETCDF3_CLASSIC':
-    ds.to_netcdf(path_output_data.joinpath(cdf_filename),unlimited_dims='time',format='NETCDF3_CLASSIC')
-
-    # Move variables to the first position: base_time, time_offset, time
-    ds = ds[['base_time', 'time_offset', 'time'] + [var for var in ds.variables if var not in ['base_time', 'time_offset', 'time']]]
-
-    print("netCDF created")
-
-
-# Time quality control
-def time_quality_control(time_interval, integration_time):
     qc_time_interval = np.where(time_interval > integration_time, 1, 0)
     if np.max(qc_time_interval) == 1:
         print("WARNING: The time interval is longer than the integration time")
         print("The data will be considered bad")
-    return qc_time_interval
+    # find the no-data values where is False set to qc_time to 2
+    qc_no_data = np.where(day_data == 1, 2, 0)
+    # qc_time is unique array mixing qc_time_interval and qc_no_data
+    qc_time = np.maximum(qc_time_interval, qc_no_data)    
+    ds['qc_time'] = xr.DataArray(qc_time, coords={'time': ds['time']}, dims=['time'])
+    ds['qc_time'].attrs['long_name'] = 'Time quality control'
+    ds['qc_time'].attrs['units'] = '0 = good data, 1 = out of integration time, 2 = no data'
+    
+    return ds
 
+def no_data_quality_control(ds, day_data):
+
+    return ds
+    
 def update_attr_valid_values(ds):
     for var_name, var_data in ds.data_vars.items():
             if var_name not in ["base_time", "time_offset", "time", "lat", "lon", "alt"]:

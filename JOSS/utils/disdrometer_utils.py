@@ -59,7 +59,12 @@ def get_day_data(all_data, export_date, variables_info):
     )
 
     # reindex the dataframe with the day index and fill the missing values with NaN
-    all_data = all_data.reindex(day_idx, fill_value=np.nan)
+    # Initial set to -9999 to be able to identify the no-data values
+    # The no-data values are the ones that have the "RI" column equal to -9999
+    # The no-data values are used to calculate the filters
+    all_data = all_data.reindex(day_idx, fill_value=-9999)
+    all_data["no-data"] = all_data["RI"] == -9999
+    all_data.replace(-9999, np.nan, inplace=True)
 
     # return dataframe with one day data, the next day to be exported and a boolean to break the loop
     return (

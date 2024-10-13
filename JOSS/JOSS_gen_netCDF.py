@@ -188,7 +188,8 @@ while True:
             dimension_nc,
             filled_variables,
             netCDF_info,
-            path_output_data
+            path_output_data,
+            day_data['no-data']
         )
         print("")
 
