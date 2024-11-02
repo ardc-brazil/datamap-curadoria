@@ -9,7 +9,8 @@ from netCDF4 import Dataset
 import os
 import sys
 import utils.fig_utils as utils
-
+import warnings
+warnings.filterwarnings("ignore")
 
 
 # ##################### ARGUMENTS ######################
@@ -50,9 +51,15 @@ JOSS_parser.add_argument(
     "--date",
     action="store",
     default=None,
-    help="Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like '%Y%m%d'. Read the files inside the netcdf input folder only for the day",
+    help="Expect exporting date in format -d dd/mm/YYYY ou --date dd/mm/YYYY. Read all data inside the data input folder and extract the data for the date specified.",
 )
-
+JOSS_parser.add_argument(
+    "-i",
+    "--input",
+    action="store",
+    default=None,
+    help="Path to the input folder containing the data files",
+)
 # Execute the parse_args() method
 args = JOSS_parser.parse_args()
 
@@ -79,22 +86,14 @@ if args.date is not None and args.list is not None:
 
 # ##################### SCRIPT #####################
 
-# Folders and files path
-path_cwd = pathlib.Path.cwd()
 
-if path_cwd.name != "JOSS":
-    print(
-        "ERRO. Please make sure python current working directory is the /JOSS folder which contains this script"
-    )
-    print("ERRO. Current working directory is:", path_cwd)
-    quit()
-
-path_input = path_cwd.joinpath("input")
+path_input = pathlib.Path(args.input) if args.input else pathlib.Path.cwd().joinpath("input")
 path_input_support = path_input.joinpath("support")
 
-path_output = path_cwd.joinpath("output")
+path_output = path_input.joinpath("output")
 path_output_fig = path_output.joinpath("figures")
 path_input_data = path_output.joinpath("netCDF")
+
 
 # reading auxiliar data
 with open(path_input_support.joinpath("variables_info.json"), "r") as xfile:

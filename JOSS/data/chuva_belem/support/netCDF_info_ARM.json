@@ -1,0 +1,449 @@
+{
+    "global attributes": {
+        "command_line": {
+            "shortname": "Command line",
+            "long_name": "JOSS_gen_netCDF.py -s",
+            "datatype": "string",
+            "value": "N/A"
+        },
+        "process_version": {
+            "shortname": "Process version",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "dod_version": {
+            "shortname": "D.O.D. version",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "Conventions": {
+            "shortname": "Conventions",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "data_level": {
+            "shortname": "Data level",
+            "long_name": "b1",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "platform_id": {
+            "shortname": "impact disdrometer",
+            "long_name": "rd80",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "input_source": {
+            "shortname": "Input Source",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "site_id": {
+            "shortname": "Site identifier",
+            "long_name": "chu_blm",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "location_description": {
+            "shortname": "Location description",
+            "long_name": "Belem site, Para, Brazil",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "facility_id": {
+            "shortname": "id_int",
+            "long_name": "CA",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "sampling_interval": {
+            "shortname": "duration",
+            "long_name": "60 seconds",
+            "datatype": "float32",
+            "value": "60"
+
+        },
+        "effective_measurement_area": {
+            "shortname": "Effective measurement area",
+            "long_name": "Effective measurement area = 0.005 mˆ2",
+            "datatype": "float32",
+            "value": "0.005"
+
+        },
+        "doi": {
+            "shortname": "D.O.I.",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "datastream": {
+            "shortname": "Datastrem",
+            "long_name": "chu01rd80CA.b1",
+            "datatype": "string",
+            "value": "N/A"
+
+        },
+        "averaging_interval": {
+            "shortname": "duration",
+            "long_name": "None",
+            "datatype": "float32",
+            "value": "60"
+
+        },
+        "serial_number": {
+            "shortname": "Serial Number",
+            "long_name": "2102502",
+            "datatype": "int64",
+            "value": "2102502"
+
+        },
+        "calib_date": {
+            "shortname": "Calibration date",
+            "long_name": "2021-08-06",
+            "datatype": "string",
+            "value": "2021-08-06"
+
+        },
+        "history": {
+            "shortname": "History",
+            "long_name": "N/A",
+            "datatype": "string",
+            "value": "N/A"
+        }
+    },
+    "dimensions": {
+        "time": "It is always a daily file, please, check the integration_time (seconds) in variable_info.json",
+        "drop_avg_class": "check the variable_info.json (changes need to be done in the code also)"
+    },
+    "variables": {
+        "base_time": {
+            "short_name": "AAAA-MM-DD 00:00:00 0:00",
+            "long_name": "Base time in Epoch",
+            "standard_name": "Base time in Epoch",
+            "units": "seconds since 1970-1-1 0:00:00 0:00",
+            "datatype": "int64",
+            "id": "692",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": [],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": "time_offset"
+        },
+        "time_offset": {
+            "short_name": "Time offset",
+            "long_name": "Time offset from base_time",
+            "standard_name": "Time offset from base_time",
+            "units": "seconds since YYYY-MM-DD 00:00:00 0:00",
+            "datatype": "float64",
+            "id": "693",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": "base_time"
+        },
+        "time": {
+            "short_name": "Time",
+            "long_name": "Time offset from midnight",
+            "standard_name": "Time offset from midnight",
+            "units": "N/A",
+            "datatype": "float64",
+            "id": "694",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A"
+            
+        },
+        "lat": {
+            "shortname": "Latitude",
+            "long_name": "North Latitude",
+            "standard_name": "N/A",
+            "units": "degree_N",
+            "datatype": "float32",
+            "id": "719",
+            "optional": true,
+            "value": -2.1815896,
+            "dimensions": [],
+            "missing_value": -9999,
+            "valid_min": -2.1815896,
+            "valid_max": -2.1815896,
+            "ancillary_variables": "N/A"
+        },
+        "lon": {
+            "shortname": "East Longitude",
+            "long_name": "East Longitude",
+            "standard_name": "N/A",
+            "units": "degree_E",
+            "datatype": "float32",
+            "id": "720",
+            "optional": true,
+            "value": -59.0218639,
+            "dimensions": [],
+            "missing_value": -9999,
+            "valid_min": -59.0218639,
+            "valid_max": -59.0218639,
+            "ancillary_variables": "N/A"
+        },
+        "alt": {
+            "shortname": "Altitude",
+            "long_name": "Altitude above mean sea level",
+            "standard_name": "N/A",
+            "units": "m",
+            "datatype": "float32",
+            "id": "721",
+            "optional": true,
+            "value": 59.0,
+            "dimensions": [],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": "N/A"
+        },
+        "fall_velocity": {
+            "short_name": "Fall Velocity",
+            "long_name": "Fall fall_vell of drop with diameter D (raw)",
+            "standard_name": "N/A",
+            "units": "m/s",
+            "datatype": "float32",
+            "id": "710",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["drop_avg_class"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "delta_diam": {
+            "short_name": "Diameter interval",
+            "long_name": "Diameter interval between drop size classes",
+            "standard_name": "N/A",
+            "units": "mm",
+            "datatype": "float32",
+            "id": "711",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["drop_avg_class"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "num_drop": {
+            "short_name": "Number of drops",
+            "long_name": "Number of raindrops measured for each class during time interval",
+            "standard_name": "N/A",
+            "units": "unitless",
+            "datatype": "float32",
+            "id": "706",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time", "drop_avg_class"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "number_detected_drops": {
+            "short_name": "Total number of raindrops detected",
+            "long_name": "Total number of raindrops measured for all classes during time interval",
+            "standard_name": "N/A",
+            "units": "unitless",
+            "datatype": "float32",
+            "id": "706",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "qc_number_detected_particles": {
+            "short_name": "Quality check results on field: Number of particles detected",
+            "long_name": "Quality check results on field: Number of particles detected",
+            "standard_name": "N/A",
+            "units": "1",
+            "datatype": "int64",
+            "id": "706",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": "number_detected_drops"
+        },
+        "diam_max": {
+            "short_name": "Diameter of largest drop",
+            "long_name": "Diameter of the Largest drop registered during to sample interval",
+            "standard_name": "N/A",
+            "units": "mm",
+            "datatype": "float32",
+            "id": "708",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "diam_min": {
+            "short_name": "Diameter of smallest drop",
+            "long_name": "Diameter of the smallest drop registered during to sample interval",
+            "standard_name": "N/A",
+            "units": "mm",
+            "datatype": "float32",
+            "id": "N/A",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "num_drop_density": {
+            "short_name": "Number density of drops of the diameter",
+            "long_name": "Number density of drops of the diameter corresponding to every size class per unit volume",
+            "standard_name": "N/A",
+            "units": "1/(m^3-mm)",
+            "datatype": "float32",
+            "id": "708",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time", "drop_avg_class"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "rain_rate": {
+            "short_name": "Rain Rate",
+            "long_name": "Rain intensity",
+            "standard_name": "N/A",
+            "units": "mm/h",
+            "datatype": "float32",
+            "id": "713",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "radar_reflectivity": {
+            "short_name": "Radar reflectivity ",
+            "long_name": "Radar reflectivity",
+            "standard_name": "N/A",
+            "units": "dBZ",
+            "datatype": "float32",
+            "id": "714",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": "radar_reflectivity = -99. when no rain is detected"
+        },
+        "liq_water": {
+            "short_name": "Liquid Water Content",
+            "long_name": "Liquid water content",
+            "standard_name": "N/A",
+            "units": "g/m^3",
+            "datatype": "float32",
+            "id": "715",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "energy_flux": {
+            "short_name": "Energy flux",
+            "long_name": "Energy flux (raw)",
+            "standard_name": "N/A",
+            "units": "J/(m^2 h)",
+            "datatype": "float32",
+            "id": "716",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "slope_parameter": {
+            "short_name": "Slope parameter",
+            "long_name": "Slope parameter",
+            "standard_name": "N/A",
+            "units": "per millimeter",
+            "datatype": "float32",
+            "id": "716",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "distribution_intercept": {
+            "short_name": "Distribution intercept",
+            "long_name": "Distribution intercept - N0",
+            "standard_name": "N/A",
+            "units": "1/(m^3 mm)",
+            "datatype": "float32",
+            "id": "716",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["time"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        },
+        "drop_avg_class": {
+            "short_name": "Average diameter of drops",
+            "long_name": "Diameter of drop size class",
+            "standard_name": "N/A",
+            "units": "mm",
+            "datatype": "float32",
+            "id": "707",
+            "optional": true,
+            "value": "N/A",
+            "dimensions": ["drop_avg_class"],
+            "missing_value": -9999,
+            "valid_min": "N/A",
+            "valid_max": "N/A",
+            "ancillary_variables": []
+        }
+    }
+}

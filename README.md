@@ -39,6 +39,12 @@ cd JOSS
 python JOSS_gen_netCDF.py -s
 ```
 
+### Executar para todos os arquivos em um diretório específico
+
+```bash
+python JOSS_gen_netCDF.py -s -i /path/to/directory
+```
+
 ### Executar para uma data específica
 Gera um arquivo netCDF apenas com os dados da data especificada no comando.
 

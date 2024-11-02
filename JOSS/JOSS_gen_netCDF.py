@@ -51,6 +51,13 @@ JOSS_parser.add_argument(
     default=None,
     help=f"Expect the format of the date contained in file names, use python strftime formats (https://strftime.org/) for input like %%Y%%m%%d. Read the files inside the data input folder only for one day before to one day after the date input",
 )
+JOSS_parser.add_argument(
+    "-i",
+    "--input",
+    action="store",
+    default=None,
+    help="Path to the input folder containing the data files",
+)
 
 # Execute the parse_args() method
 args = JOSS_parser.parse_args()
@@ -94,11 +101,10 @@ if args.date and not (args.standard or args.list):
 ###################### Defining directories #####################
 
 # Folders and files path
-path_cwd = pathlib.Path.cwd()
-path_input = path_cwd.joinpath("input")
-path_input_data = path_input.joinpath("data")
+path_input = pathlib.Path(args.input) if args.input else pathlib.Path.cwd().joinpath("input")
+path_input_data = path_input.joinpath("input")
 path_input_support = path_input.joinpath("support")
-path_output_data = path_cwd.joinpath("output", "netCDF")
+path_output_data = path_input.joinpath("output", "netCDF")
 
 # ##################### reading all file names in folder or list ##################### 
 
