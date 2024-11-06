@@ -64,7 +64,7 @@
         },
         "facility_id": {
             "shortname": "id_int",
-            "long_name": "CA",
+            "long_name": "X1",
             "datatype": "string",
             "value": "N/A"
 

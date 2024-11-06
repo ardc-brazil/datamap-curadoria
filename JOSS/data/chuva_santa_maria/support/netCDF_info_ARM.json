@@ -50,21 +50,21 @@
         },
         "site_id": {
             "shortname": "Site identifier",
-            "long_name": "sma",
+            "long_name": "ria",
             "datatype": "string",
             "value": "N/A"
 
         },
         "location_description": {
             "shortname": "Location description",
-            "long_name": "Belem site, Para, Brazil",
+            "long_name": "Santa Maria, Rio Grande do Sul, Brazil",
             "datatype": "string",
             "value": "N/A"
 
         },
         "facility_id": {
             "shortname": "id_int",
-            "long_name": "CA",
+            "long_name": "X1",
             "datatype": "string",
             "value": "N/A"
 
