@@ -50,7 +50,7 @@
         },
         "site_id": {
             "shortname": "Site identifier",
-            "long_name": "chu_blm",
+            "long_name": "sma",
             "datatype": "string",
             "value": "N/A"
 
