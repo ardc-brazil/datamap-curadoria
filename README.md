@@ -13,14 +13,14 @@ ou
 ### Instalação
 Via pip:
 ```bash
-git clone https://github.com/helvecioneto/datamap-curadoria.git
+git clone https://github.com/SInApSE-INPE/datamap-curadoria.git
 cd datamap-curadoria
 pip install -r requirements.txt
 ```
 
 Via conda:
 ```bash
-git clone https://github.com/helvecioneto/datamap-curadoria.git
+git clone https://github.com/SInApSE-INPE/datamap-curadoria.git
 cd datamap-curadoria
 conda env create -f environment.yml
 ```
