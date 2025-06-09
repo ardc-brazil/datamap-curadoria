@@ -164,5 +164,5 @@ python JOSS_gen_netCDF.py -p "%Y%m%d" -d "01/08/2022"
 
 ## Autoria dos scripts
 
-Os scripts presentes no diretório [`JOSS/utils`](https://github.com/ardc-brazil/datamap-curadoria/tree/main/JOSS/utils) foram desenvolvidos por **[Thomaz Pougy](https://github.com/tpougy)**.
+Os scripts presentes para o processamento de dados do JOSS foram desenvolvidos por **[Thomaz Assaf Pougy](https://github.com/tpougy)**, **[Alan Calheiros](https://github.com/alancalheiros)** e **[Helvecio Neto](https://github.com/helvecioneto)** com o financiamento do CNPq pelo programa PIBIC do INPE
 
