@@ -154,3 +154,15 @@ python JOSS_gen_netCDF.py -p "%Y%m%d" -d "01/08/2022"
 
         Determina para qual dia vamos ler um dia antes e depois.
         É necessário passar um parâmetro -d sempre que usar o parâmetro - p
+
+## Estrutura de Diretórios
+
+- `input/JOSS/data/`: Contém os arquivos `.trf` para gerar netCDF.
+- `input/JOSS/data_figures/`: Contém os arquivos `.nc` para gerar figuras.
+- `input/JOSS/files.txt`: Lista de arquivos `.trf` a serem processados.
+- `input/JOSS/files_figures.txt`: Lista de arquivos `.nc` a serem processados.
+
+## Autoria dos scripts
+
+Os scripts presentes no diretório [`JOSS/utils`](https://github.com/ardc-brazil/datamap-curadoria/tree/main/JOSS/utils) foram desenvolvidos por **[Thomaz Pougy](https://github.com/thomazpougy)**.
+
